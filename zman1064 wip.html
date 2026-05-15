@@ -1,54 +1,64 @@
 <!DOCTYPE html>
-
-<html>
-	<body style="background-color: aliceblue;">
-	</body>
-</html>
-
-<html>
-	<head>
-		<title>ZMAN1064</title>
-	</head>
-</html>
-
-<html>
-	<img src="jpg/zman.jpg" width="184" height="184" alt="zboner1064">
-</html>
-
 <html>
 <head>
-<title>Kanye</title>
+  <title>ZMAN1064</title>
+  <style>
+    #zman {
+      display: none;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    #zman.spinning {
+      animation: spin 1.5s linear infinite;
+    }
+  </style>
 </head>
-<body>
-	<p>The Glory</p>
-	<audio autoplay loop>
-		<source src="Music/Kanye West - The Glory.mp3" type="audio/mpeg">
-		<source src="Music/Kanye West - The Glory.ogg" type="audio/ogg">
-	</audio>
+<body style="background-color: aliceblue;">
+  <img src="jpg/zman.jpg" width="184" height="184" alt="zboner1064">
+  <p>The Glory</p>
+  <audio autoplay loop>
+    <source src="Music/Kanye West - The Glory.mp3" type="audio/mpeg">
+    <source src="Music/Kanye West - The Glory.ogg" type="audio/ogg">
+  </audio>
+  <h1>Who is ZMAN1064?</h1>
+  <p>Zman is a Youtuber, <em>obviously</em></p>
+  <p>But what kind of Youtuber? He was orginally started uploading various Unturned videos to his channel. Until he become a minecraft youtuber since Unturned had a fallout.</p>
+  <p>Too lazy to explain the rest but he eventually become a minecraft duper for videos. Where he and his friends and some he is not friends with anymore, <em>TheDuperTrooper</em></p>
+  <p>Even with controversies involving him and fallouts with friends. He still remainns a prominent figure in the duping community and current resides at around 260K Subscribers</p>
+  <h1>SOCIALS</h1>
+  <ul>
+    <li><a href="https://www.youtube.com/channel/UCFh1eczAxZlL8bhBt7b33Aw/featured">YOUTUBE</a></li>
+    <li><a href="https://discord.com/invite/zman1064">DISCORD</a></li>
+    <li><a href="https://www.instagram.com/zmantenstacks/">INSTAGRAM</a></li>
+  </ul>
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div style="margin-top: 20px;">
+      <img id="zman" src="gifs/ishekanyewest.gif" alt="Zman is not a fan of the jews">
+    </div>
+    <button onclick="toggleMedia()">Fun Button</button>
+  </div>
+  <audio id="funaudio" src="Music/funaudio.mp3"></audio>
+  <script>
+    function toggleMedia() {
+      const img = document.getElementById('zman');
+      const audio = document.getElementById('funaudio');
+      if (img.style.display === 'none' || img.style.display === '') {
+        img.style.display = 'block';
+        img.classList.add('spinning');
+        audio.play();
+      } else {
+        img.style.display = 'none';
+        img.classList.remove('spinning');
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    }
+  </script>
+  <h4>Made with love<br>Koji</h4>
+  <h4>Fun button by Nullmega</h4>
 </body>
-</html>
-
-<html>
-	<body>
-		<h1>Who is ZMAN1064?</h1>
-		<p>Zman is a Youtuber, <em>obviously</em>
-		<p>But what kind of Youtuber? He was orginally started uploading various Unturned videos to his channel. Until he become a minecraft youtuber since Unturned had a fallout.</p>
-		<p>Too lazy to explain the rest but he eventually become a minecraft duper for videos. Where he and his friends and some he is not friends with anymore, <em>TheDuperTrooper</em></p>
-		<p>Even with controversies involving him and fallouts with friends. He still remainns a prominent figure in the duping community and current resides at around 260K Subscribers</p>
-	</body>
-</html>
-
-<html>
-	<h1>SOCIALS</h1>
-	<ul>
-		<li><a href="https://www.youtube.com/channel/UCFh1eczAxZlL8bhBt7b33Aw/featured">YOUTUBE</a></li>
-		<li><a href="https://discord.com/invite/zman1064">DISCORD</a></li>
-		<li><a href="https://www.instagram.com/zmantenstacks/">INSTAGRAM</a></li>
-	</ul>
-</html>
-
-<html>
-	<body>
-		<h4>Made with love<br>Koji</h4>
-	</body>
 </html>
