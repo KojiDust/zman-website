@@ -13,7 +13,8 @@ import threading
 
 PORT = 5000
 REPO_DIR = os.path.dirname(os.path.abspath(__file__))
-WEBHOOK_SECRET = b"REPLACE_WITH_YOUR_SECRET"  # must match GitHub webhook secret
+secret = os.environ.get("WEBHOOK_SECRET", "")
+WEBHOOK_SECRET = secret.encode()
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
