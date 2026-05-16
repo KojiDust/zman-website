@@ -8,13 +8,13 @@ import hashlib
 import json
 import os
 import subprocess
-import sys
 import threading
 
 PORT = 5000
 REPO_DIR = os.path.dirname(os.path.abspath(__file__))
-secret = os.environ.get("WEBHOOK_SECRET", "")
-WEBHOOK_SECRET = secret.encode()
+
+# Secret is loaded from /var/www/.env, never hardcoded here
+WEBHOOK_SECRET = os.environ.get("WEBHOOK_SECRET", "").encode()
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
@@ -57,15 +57,16 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(b"ok")
 
-        # Pull and signal launcher to restart (done in background so response sends first)
+        # Pull and restart in background so response sends first
         threading.Thread(target=self._pull_and_restart, daemon=True).start()
 
     def _pull_and_restart(self):
         import time
         time.sleep(0.5)  # let the HTTP response flush
-        subprocess.run(["git", "pull"], cwd=REPO_DIR)
+        print("[webhook] Force pulling latest from GitHub...")
+        subprocess.run(["git", "fetch", "--all"], cwd=REPO_DIR)
+        subprocess.run(["git", "reset", "--hard", "origin/main"], cwd=REPO_DIR)
         print("[webhook] Pull done. Exiting so launcher restarts us...")
-        # Exit this process — launcher.py will detect the exit and restart
         os._exit(0)
 
     def log_message(self, format, *args):
