@@ -1,5 +1,7 @@
 """
-server.py - zman website server + GitHub webhook
+server.py
+Put this file in your GitHub repo 
+Run via launcher.py, NOT directly.
 """
 
 import http.server
@@ -13,7 +15,7 @@ import threading
 PORT = 5000
 REPO_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Secret is loaded from /var/www/.env, never hardcoded here
+# Secret is loaded from /var/www/.env
 WEBHOOK_SECRET = os.environ.get("WEBHOOK_SECRET", "").encode()
 
 
